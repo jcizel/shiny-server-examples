@@ -1,0 +1,9 @@
+require(quantmod)
+
+require_symbol <- function(symbol, environ = parent.frame()) {
+    if (is.null(environ[[symbol]])) {
+        environ[[symbol]] <- getSymbols(symbol, auto.assign = FALSE)
+    }
+}
+
+shinyServer
